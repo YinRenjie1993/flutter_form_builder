@@ -1,5 +1,59 @@
+## [3.5.3] - 11-Sep-2019
+* Fixed DateTimePicker bug: 'DateTime is not a subtype of type TimeOfDay' when Input type is Time only. Closes [#131](https://github.com/danvick/flutter_form_builder/issues/131)
+
+## [3.5.2] - 03-Sep-2019
+* Re-introduced `onSuggestionSelected` option in TypeAhead field
+
+## [3.5.1] - 02-Sep-2019
+* Hack to avoid manual editing of date - as is in DateTimeField library
+
+## [3.5.0] - 30-Aug-2019
+* **NEW FIELD TYPE**: `FormBuilderDateRangePicker`
+* New method `saveAndValidate` method to `FormBuilder`
+* Ability to use custom data types in TypeAhead field instead of just String
+* `FormBuilderDateTimePicker` fixes
+    * Fixed bug where currently selected date is cleared when DateTimePicker dialog is shown
+    * Also fixed bug where currently selected date not used as initial date in DateTimePicker dialog
+    * `initialTime` and `initialDate` deprecated - brings confusion with `initialValue`. Selected date/time or current date/time will be used instead
+* **BREAKING CHANGE**: Changed type of `resetIcon`in DateTimePicker from `IconData` to `Icon`
+
+## [3.4.1] - 21-Aug-2019
+* Fixed bug in `FormBuilderDateTimePicker` where `initialValue` defaults to null
+
+## [3.4.0] - 21-Aug-2019
+* Converted `FormBuilderFieldOption` to Widget with `child` attribute - allows option to be customized/styled
+* Fixed bug in `FormBuilderCheckboxList` where new items cannot be added
+* Allow `null` value on checkbox if `tristate` is enabled
+* Adding InputBorder on `FormBuilderDropdownField` now possible
+* Fixed bug where initial date not shown for `FormBuilderDateTimePicker`
+
+## [3.3.4] - 08-Aug-2019
+* Added `initialValue` field to `FormBuilderCustomField`
+
+## [3.3.3] - 08-Aug-2019
+* Attempt to fix issue where user is required to manually edit `FormBuilderDateTimePicker` if not empty - instead of presenting Date/Time Picker
+
+## [3.3.2] - 07-Aug-2019
+* Upgrade dependency `datetime_picker_formfield` from v0.4.0 to 1.0.0-pre.2 (aka v0.4.1)
+* Removed `editable` option from `FormBuilderDateTimePicker` - removed from dependency `datetime_picker_formfield` 
+
+## [3.3.1] - 28-Jul-2019
+* Fixed bugs in `FormBuilderDateTimePicker`
+* Minor improvements to documentation
+
+## [3.3.0] - 28-Jul-2019
+* New Feature: You can now set `initialValue` for `FormBuilder` - Accepts a `Map<String, dynamic>` where keys are `attribute`s and the values are `initialValue`s for corresponding fields
+* New Field: `FormBuilderRangeSlider`
+* Compatibility with newly released Flutter version `1.7.*`
+* `Breaking change:` Renamed occurrences of `readonly` to `readOnly` to fit naming conventions 
+* Updated `datetime_picker_formfield` to version `0.4.0` from `0.2.0`
+* Added more attribute options for different fields
+
+## [3.2.9] - 20-Jul-2019
+* Added `borderColor`, `selectedColor`, `pressedColor`, `textStyle` options to `FormBuilderSegmentedControl` for `CupertinoSegmentedControl` customization
+
 ## [3.2.8] - 12-Jul-2019
-Added `activeColor`, `checkColor`, `materialTapTargetSize` & `tristate` options to `FormBuilderCheckbox` and `FormBuilderCheckboxList` fo checkbox customization
+* Added `activeColor`, `checkColor`, `materialTapTargetSize` & `tristate` options to `FormBuilderCheckbox` and `FormBuilderCheckboxList` for checkbox customization
 
 ## [3.2.7] - 06-Jul-2019
 * Fixed bug where `valueTransformer`s not working

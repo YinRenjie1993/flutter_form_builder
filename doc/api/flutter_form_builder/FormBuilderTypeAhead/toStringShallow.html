@@ -80,8 +80,8 @@
       <li><a href="flutter_form_builder/FormBuilderTypeAhead/loadingBuilder.html">loadingBuilder</a></li>
       <li><a href="flutter_form_builder/FormBuilderTypeAhead/noItemsFoundBuilder.html">noItemsFoundBuilder</a></li>
       <li><a href="flutter_form_builder/FormBuilderTypeAhead/onChanged.html">onChanged</a></li>
-      <li><a href="flutter_form_builder/FormBuilderTypeAhead/onSuggestionSelected.html">onSuggestionSelected</a></li>
-      <li><a href="flutter_form_builder/FormBuilderTypeAhead/readonly.html">readonly</a></li>
+      <li><a href="flutter_form_builder/FormBuilderTypeAhead/readOnly.html">readOnly</a></li>
+      <li><a href="flutter_form_builder/FormBuilderTypeAhead/selectionToTextTransformer.html">selectionToTextTransformer</a></li>
       <li><a href="flutter_form_builder/FormBuilderTypeAhead/suggestionsBoxController.html">suggestionsBoxController</a></li>
       <li><a href="flutter_form_builder/FormBuilderTypeAhead/suggestionsBoxDecoration.html">suggestionsBoxDecoration</a></li>
       <li><a href="flutter_form_builder/FormBuilderTypeAhead/suggestionsBoxVerticalOffset.html">suggestionsBoxVerticalOffset</a></li>
@@ -142,6 +142,9 @@ in the output.</p>
   String joiner = &#39;, &#39;,
   DiagnosticLevel minLevel = DiagnosticLevel.debug,
 }) {
+  if (kReleaseMode) {
+    return toString();
+  }
   final StringBuffer result = StringBuffer();
   result.write(toString());
   result.write(joiner);
@@ -163,7 +166,7 @@ in the output.</p>
 
 <footer>
   <span class="no-break">
-    flutter_form_builder 3.2.8
+    flutter_form_builder 3.5.0
   </span>
 
   

@@ -6,7 +6,7 @@ class FormBuilderCheckbox extends StatefulWidget {
   final String attribute;
   final List<FormFieldValidator> validators;
   final bool initialValue;
-  final bool readonly;
+  final bool readOnly;
   final InputDecoration decoration;
   final ValueChanged onChanged;
   final ValueTransformer valueTransformer;
@@ -22,9 +22,9 @@ class FormBuilderCheckbox extends StatefulWidget {
   FormBuilderCheckbox({
     @required this.attribute,
     @required this.label,
-    this.initialValue = false,
+    this.initialValue,
     this.validators = const [],
-    this.readonly = false,
+    this.readOnly = false,
     this.decoration = const InputDecoration(),
     this.onChanged,
     this.valueTransformer,
@@ -40,14 +40,19 @@ class FormBuilderCheckbox extends StatefulWidget {
 }
 
 class _FormBuilderCheckboxState extends State<FormBuilderCheckbox> {
-  bool _readonly = false;
+  bool _readOnly = false;
   final GlobalKey<FormFieldState> _fieldKey = GlobalKey<FormFieldState>();
   FormBuilderState _formState;
+  bool _initialValue;
 
   @override
   void initState() {
     _formState = FormBuilder.of(context);
     _formState?.registerFieldKey(widget.attribute, _fieldKey);
+    _initialValue = widget.initialValue ??
+        (_formState.initialValue.containsKey(widget.attribute)
+            ? _formState.initialValue[widget.attribute]
+            : null);
     super.initState();
   }
 
@@ -59,12 +64,12 @@ class _FormBuilderCheckboxState extends State<FormBuilderCheckbox> {
 
   Widget _checkbox(FormFieldState<dynamic> field) {
     return Checkbox(
-      value: field.value ?? false,
+      value: (field.value == null && !widget.tristate) ? false : field.value,
       activeColor: widget.activeColor,
       checkColor: widget.checkColor,
       materialTapTargetSize: widget.materialTapTargetSize,
       tristate: widget.tristate,
-      onChanged: _readonly
+      onChanged: _readOnly
           ? null
           : (bool value) {
               FocusScope.of(context).requestFocus(FocusNode());
@@ -86,12 +91,12 @@ class _FormBuilderCheckboxState extends State<FormBuilderCheckbox> {
 
   @override
   Widget build(BuildContext context) {
-    _readonly = (_formState?.readonly == true) ? true : widget.readonly;
+    _readOnly = (_formState?.readOnly == true) ? true : widget.readOnly;
 
     return FormField(
       key: _fieldKey,
-      enabled: !_readonly,
-      initialValue: widget.initialValue ?? false,
+      enabled: !_readOnly,
+      initialValue: _initialValue,
       validator: (val) {
         for (int i = 0; i < widget.validators.length; i++) {
           if (widget.validators[i](val) != null)
@@ -109,7 +114,7 @@ class _FormBuilderCheckboxState extends State<FormBuilderCheckbox> {
       builder: (FormFieldState<dynamic> field) {
         return InputDecorator(
           decoration: widget.decoration.copyWith(
-            enabled: !_readonly,
+            enabled: !_readOnly,
             errorText: field.errorText,
           ),
           child: ListTile(
@@ -119,7 +124,7 @@ class _FormBuilderCheckboxState extends State<FormBuilderCheckbox> {
             title: widget.label,
             leading: _leading(field),
             trailing: _trailing(field),
-            onTap: _readonly
+            onTap: _readOnly
                 ? null
                 : () {
                     FocusScope.of(context).requestFocus(FocusNode());

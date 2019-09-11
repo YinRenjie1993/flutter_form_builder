@@ -52,17 +52,19 @@
     <h5>flutter_form_builder library</h5>
     <ol>
       <li class="section-title"><a href="flutter_form_builder/flutter_form_builder-library.html#classes">Classes</a></li>
-      <li><a href="flutter_form_builder/AlwaysDisabledFocusNode-class.html">AlwaysDisabledFocusNode</a></li>
       <li><a href="flutter_form_builder/FormBuilder-class.html">FormBuilder</a></li>
       <li><a href="flutter_form_builder/FormBuilderCheckbox-class.html">FormBuilderCheckbox</a></li>
       <li><a href="flutter_form_builder/FormBuilderCheckboxList-class.html">FormBuilderCheckboxList</a></li>
       <li><a href="flutter_form_builder/FormBuilderChipsInput-class.html">FormBuilderChipsInput</a></li>
       <li><a href="flutter_form_builder/FormBuilderCustomField-class.html">FormBuilderCustomField</a></li>
       <li><a href="flutter_form_builder/FormBuilderCustomFieldState-class.html">FormBuilderCustomFieldState</a></li>
+      <li><a href="flutter_form_builder/FormBuilderDateRangePicker-class.html">FormBuilderDateRangePicker</a></li>
+      <li><a href="flutter_form_builder/FormBuilderDateRangePickerState-class.html">FormBuilderDateRangePickerState</a></li>
       <li><a href="flutter_form_builder/FormBuilderDateTimePicker-class.html">FormBuilderDateTimePicker</a></li>
       <li><a href="flutter_form_builder/FormBuilderDropdown-class.html">FormBuilderDropdown</a></li>
       <li><a href="flutter_form_builder/FormBuilderFieldOption-class.html">FormBuilderFieldOption</a></li>
       <li><a href="flutter_form_builder/FormBuilderRadio-class.html">FormBuilderRadio</a></li>
+      <li><a href="flutter_form_builder/FormBuilderRangeSlider-class.html">FormBuilderRangeSlider</a></li>
       <li><a href="flutter_form_builder/FormBuilderRate-class.html">FormBuilderRate</a></li>
       <li><a href="flutter_form_builder/FormBuilderSegmentedControl-class.html">FormBuilderSegmentedControl</a></li>
       <li><a href="flutter_form_builder/FormBuilderSignaturePad-class.html">FormBuilderSignaturePad</a></li>
@@ -79,8 +81,11 @@
     
     
     
+      <li class="section-title"><a href="flutter_form_builder/flutter_form_builder-library.html#enums">Enums</a></li>
+      <li><a href="flutter_form_builder/InputType-class.html">InputType</a></li>
     
       <li class="section-title"><a href="flutter_form_builder/flutter_form_builder-library.html#typedefs">Typedefs</a></li>
+      <li><a href="flutter_form_builder/SelectionToTextTransformer.html">SelectionToTextTransformer</a></li>
       <li><a href="flutter_form_builder/ValueTransformer.html">ValueTransformer</a></li>
     
     </ol>
@@ -116,8 +121,16 @@
           
                   <div class="features">read-only</div>
 </dd>
-        <dt id="readonly" class="property">
-          <span class="name"><a href="flutter_form_builder/FormBuilderState/readonly.html">readonly</a></span>
+        <dt id="initialValue" class="property">
+          <span class="name"><a href="flutter_form_builder/FormBuilderState/initialValue.html">initialValue</a></span>
+          <span class="signature">&#8594; <a href="dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span></span>         
+        </dt>
+        <dd>
+          
+                  <div class="features">read-only</div>
+</dd>
+        <dt id="readOnly" class="property">
+          <span class="name"><a href="flutter_form_builder/FormBuilderState/readOnly.html">readOnly</a></span>
           <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a></span>         
         </dt>
         <dd>
@@ -226,6 +239,15 @@
         <dt id="save" class="callable">
           <span class="name"><a href="flutter_form_builder/FormBuilderState/save.html">save</a></span><span class="signature">(<wbr>)
             <span class="returntype parameter">&#8594; void</span>
+          </span>
+                  </dt>
+        <dd>
+          
+                  
+</dd>
+        <dt id="saveAndValidate" class="callable">
+          <span class="name"><a href="flutter_form_builder/FormBuilderState/saveAndValidate.html">saveAndValidate</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; <a href="dart-core/bool-class.html">bool</a></span>
           </span>
                   </dt>
         <dd>
@@ -384,7 +406,8 @@ tools and by <code>DiagnosticsNode.toStringDeep</code>. <a href="flutter_form_bu
         <a href="flutter_form_builder/FormBuilderState-class.html#instance-properties">Properties</a>
       </li>
       <li><a href="flutter_form_builder/FormBuilderState/fields.html">fields</a></li>
-      <li><a href="flutter_form_builder/FormBuilderState/readonly.html">readonly</a></li>
+      <li><a href="flutter_form_builder/FormBuilderState/initialValue.html">initialValue</a></li>
+      <li><a href="flutter_form_builder/FormBuilderState/readOnly.html">readOnly</a></li>
       <li><a href="flutter_form_builder/FormBuilderState/value.html">value</a></li>
       <li class="inherited"><a href="flutter_form_builder/FormBuilderState/context.html">context</a></li>
       <li class="inherited"><a href="dart-core/Object/hashCode.html">hashCode</a></li>
@@ -399,6 +422,7 @@ tools and by <code>DiagnosticsNode.toStringDeep</code>. <a href="flutter_form_bu
       <li><a href="flutter_form_builder/FormBuilderState/registerFieldKey.html">registerFieldKey</a></li>
       <li><a href="flutter_form_builder/FormBuilderState/reset.html">reset</a></li>
       <li><a href="flutter_form_builder/FormBuilderState/save.html">save</a></li>
+      <li><a href="flutter_form_builder/FormBuilderState/saveAndValidate.html">saveAndValidate</a></li>
       <li><a href="flutter_form_builder/FormBuilderState/setAttributeValue.html">setAttributeValue</a></li>
       <li><a href="flutter_form_builder/FormBuilderState/unregisterFieldKey.html">unregisterFieldKey</a></li>
       <li><a href="flutter_form_builder/FormBuilderState/validate.html">validate</a></li>
@@ -425,7 +449,7 @@ tools and by <code>DiagnosticsNode.toStringDeep</code>. <a href="flutter_form_bu
 
 <footer>
   <span class="no-break">
-    flutter_form_builder 3.2.8
+    flutter_form_builder 3.5.0
   </span>
 
   
